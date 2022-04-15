@@ -1,30 +1,30 @@
 var plugins = [{
       name: 'gatsby-plugin-react-helmet',
-      plugin: require('C:/Users/maxsa/OneDrive/Desktop/projects/portfolio/site/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
+      plugin: require('/Users/sathya/Downloads/site-main/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
       options: {"plugins":[]},
     },{
       name: 'gatsby-plugin-styled-components',
-      plugin: require('C:/Users/maxsa/OneDrive/Desktop/projects/portfolio/site/node_modules/gatsby-plugin-styled-components/gatsby-ssr'),
+      plugin: require('/Users/sathya/Downloads/site-main/node_modules/gatsby-plugin-styled-components/gatsby-ssr'),
       options: {"plugins":[],"displayName":true,"fileName":true,"minify":true,"namespace":"","transpileTemplateLiterals":true,"topLevelImportPaths":[],"pure":false},
     },{
       name: 'gatsby-plugin-image',
-      plugin: require('C:/Users/maxsa/OneDrive/Desktop/projects/portfolio/site/node_modules/gatsby-plugin-image/gatsby-ssr'),
+      plugin: require('/Users/sathya/Downloads/site-main/node_modules/gatsby-plugin-image/gatsby-ssr'),
       options: {"plugins":[]},
     },{
       name: 'gatsby-plugin-sitemap',
-      plugin: require('C:/Users/maxsa/OneDrive/Desktop/projects/portfolio/site/node_modules/gatsby-plugin-sitemap/gatsby-ssr'),
+      plugin: require('/Users/sathya/Downloads/site-main/node_modules/gatsby-plugin-sitemap/gatsby-ssr'),
       options: {"plugins":[],"output":"/sitemap","createLinkInHead":true,"entryLimit":45000,"query":"{ site { siteMetadata { siteUrl } } allSitePage { nodes { path } } }","excludes":[]},
     },{
       name: 'gatsby-plugin-manifest',
-      plugin: require('C:/Users/maxsa/OneDrive/Desktop/projects/portfolio/site/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
+      plugin: require('/Users/sathya/Downloads/site-main/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
       options: {"plugins":[],"name":"Sathyaprakash Narayanan","short_name":"satabios","start_url":"/","background_color":"#020c1b","theme_color":"#0a192f","display":"minimal-ui","icon":"src/images/logo.png","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","crossOrigin":"anonymous","include_favicon":true,"cacheDigest":"9061b2db43b91294f7cb158d13727ea2"},
     },{
       name: 'gatsby-plugin-offline',
-      plugin: require('C:/Users/maxsa/OneDrive/Desktop/projects/portfolio/site/node_modules/gatsby-plugin-offline/gatsby-ssr'),
+      plugin: require('/Users/sathya/Downloads/site-main/node_modules/gatsby-plugin-offline/gatsby-ssr'),
       options: {"plugins":[]},
     },{
       name: 'gatsby-plugin-google-analytics',
-      plugin: require('C:/Users/maxsa/OneDrive/Desktop/projects/portfolio/site/node_modules/gatsby-plugin-google-analytics/gatsby-ssr'),
+      plugin: require('/Users/sathya/Downloads/site-main/node_modules/gatsby-plugin-google-analytics/gatsby-ssr'),
       options: {"plugins":[],"trackingId":"UA-197727774-1","head":false,"anonymize":false,"respectDNT":false,"exclude":[],"pageTransitionDelay":0,"enableWebVitalsTracking":false},
     }]
 // During bootstrap, we write requires at top of this file which looks like:
