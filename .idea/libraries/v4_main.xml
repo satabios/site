@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="v4-main">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/raw-backup/v4-main.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

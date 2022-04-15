@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://satabios.github.io/sitemap/sitemap-index.xml
+Host: https://satabios.github.io

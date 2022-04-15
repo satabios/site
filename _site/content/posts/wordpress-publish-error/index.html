@@ -1,0 +1,21 @@
+<h2 id="problem">Problem</h2>
+
+<p>Recently while working on a WordPress project with <a href="https://github.com/Upstatement/ups-dock">Ups Dock</a>, I encountered a weird error where I wasn’t able to update or publish a simple post in my local WP admin.</p>
+
+<p>It looked something like this:</p>
+
+<p><img src="./draft-fail.png" alt="Draft fail" /></p>
+
+<p>Sometimes the error message would be slightly more helpful: <code class="language-plaintext highlighter-rouge">Publishing failed. Error message: The response is not a valid JSON response.</code></p>
+
+<p><img src="./publish-error.png" alt="Publish error" /></p>
+
+<p>And if I popped open the console, I saw these errors:</p>
+
+<p><img src="./console-errors.png" alt="Console errors" /></p>
+
+<h2 id="solution">Solution</h2>
+
+<p>Since the error message had to do with a JSON response, I initially thought it was a Gutenberg or ACF issue. But it turned out this was happening because I was on the https WP admin (i.e. <a href="https://project.ups.dock/wp-admin">https://project.ups.dock/wp-admin</a>), not the unsecure WP admin (<a href="http://project.ups.dock/wp-admin">http://project.ups.dock/wp-admin</a>).</p>
+
+<p>It was a CORS error!! I was trying to modify a non-https domain from a https domain. Switching to a non-https WP admin allowed me to publish posts with no problem.</p>

@@ -1,0 +1,366 @@
+<p><img src="./image.jpg" alt="Image Alt" /></p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">FlavorForm</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span> <span class="c1">// highlight-line</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span><span class="na">value</span><span class="p">:</span> <span class="dl">'</span><span class="s1">coconut</span><span class="dl">'</span><span class="p">};</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">handleChange</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// highlight-next-line</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="na">value</span><span class="p">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="c1">// highlight-start</span>
+  <span class="nx">handleSubmit</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">Your favorite flavor is: </span><span class="dl">'</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="c1">// highlight-end</span>
+
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="p">{</span> <span class="cm">/* highlight-range{1,4-9,12} */</span> <span class="p">}</span>
+      <span class="p">&lt;</span><span class="nt">form</span> <span class="na">onSubmit</span><span class="p">=</span><span class="si">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span><span class="si">}</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
+          Pick your favorite flavor:
+          <span class="p">&lt;</span><span class="nt">select</span> <span class="na">value</span><span class="p">=</span><span class="si">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">value</span><span class="si">}</span> <span class="na">onChange</span><span class="p">=</span><span class="si">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="si">}</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="p">=</span><span class="s">"grapefruit"</span><span class="p">&gt;</span>Grapefruit<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="p">=</span><span class="s">"lime"</span><span class="p">&gt;</span>Lime<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="p">=</span><span class="s">"coconut"</span><span class="p">&gt;</span>Coconut<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="p">=</span><span class="s">"mango"</span><span class="p">&gt;</span>Mango<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="p">=</span><span class="s">"submit"</span> <span class="na">value</span><span class="p">=</span><span class="s">"Submit"</span> <span class="p">/&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<pre><code class="language-javascript:title=highlight.js">// Here is a comment
+function $initHighlight(block, cls) {
+  try {
+    if (cls.search(/\bno\-highlight\b/) != -1)
+      return process(block, true, 0x0F) +
+             ` class="${cls}"`;
+  } catch (e) {
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i &lt; classes.length; i++) {
+    if (checkCondition(classes[i]) === undefined) {
+      console.log('undefined');
+    }
+  }
+
+  return (
+    &lt;div&gt;
+      &lt;web-component&gt;{block}&lt;/web-component&gt;
+    &lt;/div&gt;
+  )
+}
+
+export $initHighlight;
+</code></pre>
+
+<p>This is a paragraph.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is a paragraph.
+</code></pre></div></div>
+
+<h1 id="header-1">Header 1</h1>
+
+<h2 id="header-2">Header 2</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Header 1
+========
+
+Header 2
+--------
+</code></pre></div></div>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@import</span> <span class="s2">'compass/reset'</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="nt">variables</span>
+<span class="err">$</span><span class="nt">colorGreen</span><span class="o">:</span> <span class="err">#008000</span><span class="o">;</span>
+<span class="err">$</span><span class="nt">colorGreenDark</span><span class="o">:</span> <span class="nt">darken</span><span class="o">(</span><span class="err">$</span><span class="nt">colorGreen</span><span class="o">,</span> <span class="err">10</span><span class="o">);</span>
+
+<span class="k">@mixin</span> <span class="n">container</span> <span class="p">{</span>
+  <span class="nl">max-width</span><span class="p">:</span> <span class="m">980px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="nt">mixins</span> <span class="nt">with</span> <span class="nt">parameters</span>
+<span class="k">@mixin</span> <span class="n">button</span><span class="p">(</span><span class="err">$</span><span class="n">color</span><span class="p">:</span> <span class="no">green</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">@if</span> <span class="p">(</span><span class="err">$</span><span class="n">color</span> <span class="err">==</span> <span class="no">green</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="m">#008000</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">@else</span> <span class="n">if</span> <span class="p">(</span><span class="err">$</span><span class="n">color</span> <span class="err">==</span> <span class="no">red</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="m">#b22222</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nt">button</span> <span class="p">{</span>
+  <span class="err">@include</span> <span class="err">button(red);</span>
+<span class="p">}</span>
+
+<span class="nt">div</span><span class="o">,</span>
+<span class="nc">.navbar</span><span class="o">,</span>
+<span class="nf">#header</span><span class="o">,</span>
+<span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s2">'input'</span><span class="o">]</span> <span class="p">{</span>
+  <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'Helvetica Neue'</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.row-12</span> <span class="o">&gt;</span> <span class="o">[</span><span class="nt">class</span><span class="o">*=</span><span class="s2">'spans'</span><span class="o">]</span> <span class="p">{</span>
+  <span class="nl">border-left</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="m">#b5c583</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="nt">nested</span> <span class="nt">definitions</span>
+<span class="nt">ul</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="err">{</span>
+    <span class="nb">left</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+    <span class="nl">right</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nt">li</span> <span class="p">{</span>
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+    <span class="nl">margin-right</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="err">.home</span> <span class="err">{</span>
+      <span class="nl">background</span><span class="p">:</span> <span class="sx">url('http://placehold.it/20')</span> <span class="nb">scroll</span> <span class="nb">no-repeat</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="err">}</span>
+<span class="err">}</span>
+
+<span class="nc">.banner</span> <span class="p">{</span>
+  <span class="err">@extend</span> <span class="err">.container;</span>
+<span class="p">}</span>
+
+<span class="nt">a</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="err">$</span><span class="n">colorGreen</span><span class="p">;</span>
+  <span class="err">&amp;:hover</span> <span class="err">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="err">$</span><span class="n">colorGreenDark</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="o">&amp;</span><span class="nd">:visited</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="m">#c458cb</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="err">}</span>
+
+<span class="k">@for</span> <span class="err">$</span><span class="n">i</span> <span class="n">from</span> <span class="m">1</span> <span class="n">through</span> <span class="m">5</span> <span class="p">{</span>
+  <span class="nc">.span</span><span class="err">#</span><span class="p">{</span><span class="err">$i</span><span class="p">}</span> <span class="p">{</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">20px</span> <span class="err">*</span> <span class="err">$</span><span class="n">i</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">@mixin</span> <span class="n">mobile</span> <span class="p">{</span>
+  <span class="k">@media</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">max-width</span><span class="p">:</span> <span class="m">600px</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">@content</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># hello world</span>
+
+you can write text <span class="p">[</span><span class="nv">with links</span><span class="p">](</span><span class="sx">http://example.com</span><span class="p">)</span> inline or <span class="p">[</span><span class="nv">link references</span><span class="p">][</span><span class="ss">1</span><span class="p">]</span>.
+<span class="p">
+-</span> one _thing_ has <span class="ge">*em*</span>phasis
+<span class="p">-</span> two <span class="gs">**things**</span> are <span class="gs">**bold**</span>
+
+<span class="p">[</span><span class="ss">1</span><span class="p">]:</span> <span class="sx">http://example.com</span>
+<span class="p">
+---
+</span>
+<span class="gh"># hello world</span>
+
+<span class="nt">&lt;this_is</span> <span class="na">inline=</span><span class="s">"xml"</span><span class="nt">&gt;&lt;/this_is&gt;</span>
+<span class="gt">
+&gt; markdown is so cool</span><span class="sb">
+
+    so are code segments
+
+</span><span class="p">1.</span> one thing (yeah!)
+<span class="p">2.</span> two thing <span class="sb">`i can write code`</span>, and <span class="sb">`more`</span> wipee!
+</code></pre></div></div>
+
+<h1 id="header-1-1">Header 1</h1>
+
+<h2 id="header-2-1">Header 2</h2>
+
+<h3 id="header-3">Header 3</h3>
+
+<h4 id="header-4">Header 4</h4>
+
+<h5 id="header-5">Header 5</h5>
+
+<h6 id="header-6">Header 6</h6>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Header 1
+## Header 2
+### Header 3
+#### Header 4
+##### Header 5
+###### Header 6
+</code></pre></div></div>
+
+<h1 id="header-1-2">Header 1</h1>
+
+<h2 id="header-2-2">Header 2</h2>
+
+<h3 id="header-3-1">Header 3</h3>
+
+<h4 id="header-4-1">Header 4</h4>
+
+<h5 id="header-5-1">Header 5</h5>
+
+<h6 id="header-6-1">Header 6</h6>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Header 1 #
+## Header 2 ##
+### Header 3 ###
+#### Header 4 ####
+##### Header 5 #####
+###### Header 6 ######
+</code></pre></div></div>
+
+<blockquote>
+  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+</code></pre></div></div>
+
+<blockquote>
+  <h2 id="this-is-a-header">This is a header</h2>
+
+  <ol>
+    <li>This is the first list item.</li>
+    <li>This is the second list item.</li>
+  </ol>
+
+  <p>Here’s some example code:</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Markdown.generate();
+</code></pre></div>  </div>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; ## This is a header.
+&gt; 1. This is the first list item.
+&gt; 2. This is the second list item.
+&gt;
+&gt; Here's some example code:
+&gt;
+&gt;     Markdown.generate();
+</code></pre></div></div>
+
+<ul>
+  <li>Red</li>
+  <li>Green</li>
+  <li>
+    <p>Blue</p>
+  </li>
+  <li>Red</li>
+  <li>Green</li>
+  <li>
+    <p>Blue</p>
+  </li>
+  <li>Red</li>
+  <li>Green</li>
+  <li>Blue</li>
+</ul>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">-</span> Red
+<span class="p">-</span> Green
+<span class="p">-</span> Blue
+<span class="p">
+*</span> Red
+<span class="p">*</span> Green
+<span class="p">*</span> Blue
+<span class="p">
+-</span> Red
+<span class="p">-</span> Green
+<span class="p">-</span> Blue
+</code></pre></div></div>
+
+<ol>
+  <li>Buy flour and salt</li>
+  <li>Mix together with water</li>
+  <li>Bake</li>
+</ol>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">1.</span> Buy flour and salt
+<span class="p">1.</span> Mix together with water
+<span class="p">1.</span> Bake
+</code></pre></div></div>
+
+<p>Paragraph:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Code
+</code></pre></div></div>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Paragraph:
+
+    Code
+</code></pre></div></div>
+
+<hr />
+
+<hr />
+
+<hr />
+
+<hr />
+
+<hr />
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* * *
+
+***
+
+*****
+
+- - -
+
+---------------------------------------
+</code></pre></div></div>
+
+<p>This is <a href="http://example.com" title="Example">an example</a> link.</p>
+
+<p><a href="http://example.com">This link</a> has no title attr.</p>
+
+<p>This is <a href="http://example.com" title="Optional Title">an example</a> reference-style link.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is [an example](http://example.com "Example") link.
+
+[This link](http://example.com) has no title attr.
+
+This is [an example] [id] reference-style link.
+
+[id]: http://example.com "Optional Title"
+</code></pre></div></div>
+
+<p><em>single asterisks</em></p>
+
+<p><em>single underscores</em></p>
+
+<p><strong>double asterisks</strong></p>
+
+<p><strong>double underscores</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*single asterisks*
+
+_single underscores_
+
+**double asterisks**
+
+__double underscores__
+</code></pre></div></div>
+
+<p>This paragraph has some <code class="language-plaintext highlighter-rouge">code</code> in it.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This paragraph has some `code` in it.
+</code></pre></div></div>

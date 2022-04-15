@@ -1,0 +1,24 @@
+<h2 id="problem">Problem</h2>
+
+<p>Recently while updating with <a href="https://github.com/Upstatement/skela-wp-theme">Skela</a> with webpack, I encountered a weird error where I wasn’t able to run a simple script:</p>
+
+<pre><code class="language-shell:title=bin/composer">#!/bin/bash
+docker-compose exec -w /var/www/html/wp-content/themes/skela wordpress composer "$@"
+</code></pre>
+
+<p>When trying to run this script via <code class="language-plaintext highlighter-rouge">./bin/composer install</code>, I got this error in my terminal:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ERROR: Setting workdir <span class="k">for </span><span class="nb">exec </span>is not supported <span class="k">in </span>API &lt; 1.35 <span class="o">(</span>1.30<span class="o">)</span>
+</code></pre></div></div>
+
+<p>The error was coming from the <code class="language-plaintext highlighter-rouge">-w</code> flag in the <code class="language-plaintext highlighter-rouge">docker-compose exec</code> command in the <code class="language-plaintext highlighter-rouge">composer</code> script.</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>Turns The fix was to update the version in my <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> file to from version <code class="language-plaintext highlighter-rouge">3.5</code> to <code class="language-plaintext highlighter-rouge">3.6</code>. It’s strange because 3.5 isn’t anywhere close to the API version <code class="language-plaintext highlighter-rouge">1.35</code> from the error message 🤷‍♀️</p>
+
+<pre><code class="language-yaml:title=docker-compose.yml">version: '3.6' # highlight-line
+services:
+  wordpress:
+    build:
+</code></pre>
